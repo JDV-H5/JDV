@@ -14,7 +14,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .clear{ width:0; height:0;clear:both;font-size:0;line-height:0}
 .top1{ height:1px; overflow: hidden}
 
-html,body{width: 100%; height: 100%; overflow: hidden; background-color: #000;}
+html,body{width: 700px; height: 100%; overflow: hidden; background-color: #000;}
 .CC{position: relative; top:0; left: 0; overflow: hidden; }
 #_unable{
     position: absolute; top: 0; left: 0;

@@ -8,8 +8,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="viewport" content="target-densitydpi=device-dpi,width=700px,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=700px,user-scalable=no">
     <script>
         var DEFAULT_WIDTH = 700,//页面的默认宽度
             ua=navigator.userAgent.toLowerCase(),//根据useragent的信息获取浏览器信息
@@ -19,7 +19,7 @@
         //Android4.0以下手机不支持viewport的width，需要设置target-densitydpi
         if(ua.indexOf("android")!==-1&&parseFloat(ua.slice(ua.indexOf("android")+8))<4){
             targetDensitydpi=DEFAULT_WIDTH/deviceWidth*devicePixelRatio*160;
-            $('meta[name="viewport"]').attr('content','target-densitydpi=' + targetDensitydpi + ',width=device-width,user-scalable=no');
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'target-densitydpi=' + targetDensitydpi + ',width=device-width,user-scalable=no');
         }
     </script>
 
@@ -34,8 +34,13 @@
 <div id="app">
 
     <section class="cc " id="Loader">
-        <div class="main">
+        <div class="main"></div>
+    </section>
 
+    <section class="cc " id="Index">
+        <div class="main">
+            <div class="pic"></div>
+            <div class="start"></div>
         </div>
     </section>
 
@@ -47,12 +52,33 @@
         </div>
     </section>
 
+    <section class="cc " id="GameLoad1">
+        <div class="main">
+            <div class="tit2"></div>
+            <div class="tit1"></div>
+            <div class="line"></div>
+            <div class="box"></div>
+            <div class="loadw"></div>
+            <div class="dot"></div>
+            <div class="tit3"></div>
+        </div>
+    </section>
 
     <section class="cc " id="Game1">
         <div class="main">
-            <canvas id="cav" width="700" height="1140"></canvas>
-            <!--mynew code-->
+            <canvas id="cav_game1" width="700" height="1140"></canvas>
+        </div>
+    </section>
 
+    <section class="cc " id="GameLoad2">
+        <div class="main">
+            <div class="tit2"></div>
+            <div class="tit1"></div>
+            <div class="line"></div>
+            <div class="box"></div>
+            <div class="loadw"></div>
+            <div class="dot"></div>
+            <div class="tit3"></div>
         </div>
     </section>
 
@@ -70,12 +96,13 @@
 <script src="./lib/libs.js"></script>
 <script src="./lib/libs_canvas.js"></script>
 
-<script src="./src/js/sprite.js"></script>
+<script src="./src/js/sprite_game1.js"></script>
 
 <script src="./src/js/resize.js"></script>
 <script src="./src/js/init.js"></script>
 
 <script src="./src/js/index.js"></script>
+<script src="./src/js/game1.js"></script>
 
 <script>
     $("body").on('touchmove',function(event){ event.preventDefault(); },false);
