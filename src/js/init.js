@@ -106,14 +106,31 @@ function GameLoad1_cav(){
     });
     cav_game1.drawImg("game1_brain","",{x:583, y:291});
 
+    cav_game1.drawSprite("game1_bookshow","",{
+        mov: {
+            ini: [0],
+            run:{ frames: cv.ping(12), next:"ini"}
+        }
+    });
+
+    cav_game1.drawSprite("game1_glass1","",{
+        mov: {
+            ini: [0],
+            run:{ frames: cv.ping(12), next:"ini"}
+        }
+    });
+
     cav_game1.drawImg("game1_box");
 
-    cav_game1.drawArea("game1_draw_btn", "", cv.getArea("game1_draw"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_book1_btn", "", cv.getArea("game1_book1"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_book2_btn", "", cv.getArea("game1_book2"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_book3_btn", "", cv.getArea("game1_book3"), "#ffffff", {alpha: 0.01});
+    cav_game1.drawArea("game1_draw", "", cv.getArea("game1_draw"), "#ffffff", {alpha: 0.01});
+    cav_game1.drawArea("game1_book1", "", cv.getArea("game1_book1"), "#ffffff", {alpha: 0.01});
+    cav_game1.drawArea("game1_book2", "", cv.getArea("game1_book2"), "#ffffff", {alpha: 0.01});
+    cav_game1.drawArea("game1_book3", "", cv.getArea("game1_book3"), "#ffffff", {alpha: 0.01});
 
-    cav_game1.drawArea("game1_end_btn", "", [627,1063,73,77], "#ffffff", {alpha: 0.01});
+    cav_game1.drawArea("game1_bookshow", "", [42,649,95,176], "#ffffff", {alpha: 0.01});
+    cav_game1.drawArea("game1_glass1", "", [42,423,95,176], "#ffffff", {alpha: 0.01});
+
+    cav_game1.drawArea("game1_end", "", [627,1063,73,77], "#ffffff", {alpha: 0.01});
 
     var drawArr = [
         cav_game1.img["game1_bg"],
@@ -127,13 +144,21 @@ function GameLoad1_cav(){
 
         cav_game1.img["game1_brain"],
 
+        cav_game1.sprite["game1_bookshow"],
+        cav_game1.sprite["game1_glass1"],
+
         cav_game1.img["game1_box"],
 
-        cav_game1.dom["game1_book1_btn"],
-        cav_game1.dom["game1_book2_btn"],
-        cav_game1.dom["game1_book3_btn"],
+        // btn
+        cav_game1.dom["game1_book1"],
+        cav_game1.dom["game1_book1"],
+        cav_game1.dom["game1_book2"],
+        cav_game1.dom["game1_book3"],
 
-        cav_game1.dom["game1_draw_btn"]
+        cav_game1.dom["game1_bookshow"],
+        cav_game1.dom["game1_glass1"],
+
+        cav_game1.dom["game1_draw"]
     ];
 
     cav_game1.draw("game1", drawArr);
