@@ -8,26 +8,36 @@ Room.GameLoad1.ppt = function(){
 
 Room.Game1 = {};
 Room.Game1.ini = function(){
-    cav_game1.dom["game1_book1_btn"].on("click", function () {
-        cav_game1.sprite["game1_book1"].gotoAndPlay("run");
-    });
-
-    cav_game1.dom["game1_book2_btn"].on("click", function () {
+    // main
+    cav_game1.dom["game1_book2"].on("click", function () {
         cav_game1.sprite["game1_book2"].gotoAndPlay("run");
     });
 
-    cav_game1.dom["game1_book3_btn"].on("click", function () {
+    cav_game1.dom["game1_book3"].on("click", function () {
         cav_game1.sprite["game1_book3"].gotoAndPlay("run");
     });
 
+    cav_game1.dom["game1_glass1"].on("click", function () {
+        cav_game1.sprite["game1_glass1"].gotoAndPlay("run");
+    });
+
+
     // else
-    cav_game1.dom["game1_draw_btn"].on("click", function () {
+    cav_game1.dom["game1_book1"].on("click", function () {
+        cav_game1.sprite["game1_book1"].gotoAndPlay("run");
+    });
+
+    cav_game1.dom["game1_draw"].on("click", function () {
         cav_game1.sprite["game1_draw"].gotoAndPlay("run");
     });
 
+    cav_game1.dom["game1_bookshow"].on("click", function () {
+        cav_game1.sprite["game1_bookshow"].gotoAndPlay("run");
+    });
+
     // tmp
-    cav_game1.dom["game1_end_btn"].on("click", function () {
-        alert(1);
+    cav_game1.dom["game1_end"].on("click", function () {
+        alert("end");
     });
 };
 Room.Game1.que_ticker = function(){
