@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/index.css" />
     <link rel="stylesheet" href="./src/css/game1.css" />
+    <link rel="stylesheet" href="./src/css/game2.css" />
+    <link rel="stylesheet" href="./src/css/game3.css" />
+    <link rel="stylesheet" href="./src/css/game4.css" />
 
 </head>
 
@@ -68,10 +71,35 @@
     <section class="cc " id="Game1">
         <div class="main">
             <canvas id="cav_game1" width="700" height="1140"></canvas>
+            <div class="_next"><div class="btn"></div></div>
         </div>
     </section>
 
     <section class="cc " id="GameLoad2">
+        <div class="main">
+            <div class="tit2"></div>
+            <div class="tit1"></div>
+            <div class="line"></div>
+            <div class="box"></div>
+            <div class="loadw"></div>
+            <div class="dot"></div>
+            <div class="tit3"></div>
+        </div>
+    </section>
+
+    <section class="cc " id="GameLoad3">
+        <div class="main">
+            <div class="tit2"></div>
+            <div class="tit1"></div>
+            <div class="line"></div>
+            <div class="box"></div>
+            <div class="loadw"></div>
+            <div class="dot"></div>
+            <div class="tit3"></div>
+        </div>
+    </section>
+
+    <section class="cc " id="GameLoad4">
         <div class="main">
             <div class="tit2"></div>
             <div class="tit1"></div>
@@ -98,13 +126,16 @@
 <script src="./lib/libs_canvas.js"></script>
 
 <script src="./src/js/sprite_game1.js"></script>
+<!--<script src="./src/js/sprite_game2.js"></script>-->
 
 <script src="./src/js/resize.js"></script>
 <script src="./src/js/init.js"></script>
 <script src="./src/js/init_game1.js"></script>
+<!--<script src="./src/js/init_game2.js"></script>-->
 
 <script src="./src/js/index.js"></script>
 <script src="./src/js/game1.js"></script>
+<!--<script src="./src/js/game2.js"></script>-->
 
 <script>
     $("body").on('touchmove',function(event){ event.preventDefault(); },false);

@@ -16,16 +16,10 @@ Room.Game1.dom = function(){
 Room.Game1.ppt = function(){
     cc.ppt(["Game1", "GameLoad2"] , function(after , callback){
         cc.m["Game1"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["GameLoad2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
-            after.go();
-        }});
+        cc.m["GameLoad2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000});
     })
 };
-Room.Game1.go_after = function(){
-    clearInterval(Hand.game1_yun1);
-    clearInterval(Hand.game1_yun2);
-    clearInterval(Hand.game1_yun3);
-};
+
 Room.Game1.ini = function(){
     // main
     cav_game1.dom["game1_book2"].on("click", function () {
@@ -95,10 +89,5 @@ Room.Game1.ini = function(){
     cav_game1.dom["game1_flower"].on("click", function () {
         cav_game1.sprite["game1_flower"].gotoAndPlay("run");
     });
-
-    //mov
-    Hand.game1_yun1 = cv.movWiggle(cav_game1.img["game1_yun1"], 15,5);
-    Hand.game1_yun2 = cv.movWiggle(cav_game1.img["game1_yun2"], 25,10);
-    Hand.game1_yun3 = cv.movWiggle(cav_game1.img["game1_yun3"], 35,15);
 
 };

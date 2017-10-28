@@ -8,29 +8,14 @@ function GameLoad1(){
 
     cav_game1 = new CanvasCreate($("#cav_game1"));
 
-    //border
-    Loads.loads("border1",  "img/", "border1.png");
-    Loads.loads("border2",  "img/", "border2.png");
-    Loads.loads("border3",  "img/", "border3.png");
-    Loads.loads("border4",  "img/", "border4.png");
     // next Load
     Loads.loads("load2_tit1",  "img/load2/", "tit1.png");
     Loads.loads("load2_tit2",  "img/load2/", "tit2.png");
     Loads.loads("load2_tit3",  "img/load2/", "tit3.png");
     Loads.loads("load2_dot",  "img/load2/", "dot.png");
-
-    Loads.loads("load3_tit1",  "img/load3/", "tit1.png");
-    Loads.loads("load3_tit2",  "img/load3/", "tit2.png");
-    Loads.loads("load3_tit3",  "img/load3/", "tit3.png");
-    Loads.loads("load3_dot",  "img/load3/", "dot.png");
-
-    Loads.loads("load4_tit1",  "img/load4/", "tit1.png");
-    Loads.loads("load4_tit2",  "img/load4/", "tit2.png");
-    Loads.loads("load4_tit3",  "img/load4/", "tit3.png");
-    Loads.loads("load4_dot",  "img/load4/", "dot.png");
     // game
     Loads.loads("game1_bg",  "img/game1/", "bg.png");
-
+    Loads.loads("game1_box",  "img/game1/", "box.png");
     Loads.loads("game1_yun1",  "img/game1/", "yun1.png");
     Loads.loads("game1_yun2",  "img/game1/", "yun2.png");
     Loads.loads("game1_yun3",  "img/game1/", "yun3.png");
@@ -72,29 +57,15 @@ function GameLoad1(){
 
 function GameLoad1_cav(){
 
-    //预处理所有加载页
     $("#GameLoad2 .tit1").html(Loads.get("load2_tit1"));
     $("#GameLoad2 .tit2").html(Loads.get("load2_tit2"));
     $("#GameLoad2 .tit3").html(Loads.get("load2_tit3"));
     $("#GameLoad2 .dot").html(Loads.get("load2_dot"));
 
-    $("#GameLoad3 .tit1").html(Loads.get("load2_tit1"));
-    $("#GameLoad3 .tit2").html(Loads.get("load2_tit2"));
-    $("#GameLoad3 .tit3").html(Loads.get("load2_tit3"));
-    $("#GameLoad3 .dot").html(Loads.get("load2_dot"));
-
-    $("#GameLoad4 .tit1").html(Loads.get("load2_tit1"));
-    $("#GameLoad4 .tit2").html(Loads.get("load2_tit2"));
-    $("#GameLoad4 .tit3").html(Loads.get("load2_tit3"));
-    $("#GameLoad4 .dot").html(Loads.get("load2_dot"));
-
     cav_game1.ccv("game1");
     cav_game1.framerate = 10;
 
     cav_game1.drawImg("game1_bg");
-    cav_game1.drawImg("game1_yun1","",{x:105, y:28});
-    cav_game1.drawImg("game1_yun2","",{x:558, y:396});
-    cav_game1.drawImg("game1_yun3","",{x:-143, y:925});
 
     cav_game1.drawSprite("game1_draw","",{
         mov: {
@@ -109,7 +80,6 @@ function GameLoad1_cav(){
             ini: { frames: cv.ping(12)}
         }
     });
-
     cav_game1.drawSprite("game1_book1","",{
         mov: {
             ini: [0],
@@ -210,11 +180,7 @@ function GameLoad1_cav(){
         }
     });
 
-    cav_game1.drawImg("border1","",{x:0, y:0});
-    cav_game1.drawImg("border2","",{x:0, y:55});
-    cav_game1.drawImg("border3","",{x:43, y:1095});
-    cav_game1.drawImg("border4","",{x:657, y:55});
-
+    cav_game1.drawImg("game1_box");
 
     cav_game1.drawArea("game1_draw", "", cv.getArea("game1_draw"), "#ffffff", {alpha: 0.01});
     cav_game1.drawArea("game1_book1", "", cv.getArea("game1_book1"), "#ffffff", {alpha: 0.01});
@@ -244,8 +210,7 @@ function GameLoad1_cav(){
         cav_game1.sprite["game1_book2"],
         cav_game1.sprite["game1_brain"],
 
-        cav_game1.img["game1_yun1"],
-        cav_game1.img["game1_yun2"],
+        cav_game1.img["game1_brain"],
 
         cav_game1.sprite["game1_clothes"],
 
@@ -261,12 +226,7 @@ function GameLoad1_cav(){
         cav_game1.sprite["game1_drawer"],
         cav_game1.sprite["game1_flower"],
 
-        cav_game1.img["game1_yun3"],
-
-        cav_game1.img["border1"],
-        cav_game1.img["border2"],
-        cav_game1.img["border3"],
-        cav_game1.img["border4"],
+        cav_game1.img["game1_box"],
 
         // btn
         cav_game1.dom["game1_book1"],

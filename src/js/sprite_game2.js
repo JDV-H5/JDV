@@ -1,5 +1,3 @@
-var spriteJson = {};
-
 spriteJson.game1_book1 = {"file":"book1.png","frames":{
     "100000":{"x":193,"y":162,"w":100,"h":142,"offX":406,"offY":66,"sourceW":700,"sourceH":1140},
     "100002":{"x":0,"y":166,"w":96,"h":150,"offX":406,"offY":63,"sourceW":700,"sourceH":1140},

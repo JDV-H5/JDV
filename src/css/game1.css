@@ -36,39 +36,3 @@
     text-align: center; font-size: 18px;
     color: #D4B67A;
 }
-
-
-/*GameLoad2*/
-#GameLoad2 .tit2{
-    position: absolute; left: 343px; top: 236px;
-    width: 26px; height: 87px;
-}
-#GameLoad2 .tit1{
-    position: absolute; left: 319px; top: 378px;
-    width: 65px; height: 75px;
-}
-#GameLoad2 .box{
-    position: absolute; left: 261px; top: 557px;
-    width: 177px; height: 33px;
-    background: url(../../img/loadbox.png);
-}
-#GameLoad2 .dot{
-    position: absolute; left: 329px; top: 718px;
-    width: 44px; height: 120px;
-}
-#GameLoad2 .tit3{
-    position: absolute; left: 314px; top: 961px;
-    width: 72px; height: 34px;
-}
-#GameLoad2 .line{
-    position: absolute; left: 274px; top: 563px;
-    width: 1px; height: 23px;
-    background-color: #D4B67A;
-}
-#GameLoad2 .loadw{
-    position: absolute; left: 261px; top: 605px;
-    width: 177px; height: 28px;
-    text-align: center; font-size: 18px;
-    color: #D4B67A;
-}
-
