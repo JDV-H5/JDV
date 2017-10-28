@@ -38,11 +38,11 @@ Room.Index.go_after = function () {
 };
 
 Room.Index.ppt = function(){
-    cc.ppt(["Index", "GameLoad1"] , function(after , callback){
+    cc.ppt(["Index", "GameLoad2"] , function(after , callback){
         cc.m["Index"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["GameLoad1"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
+        cc.m["GameLoad2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
             after.go();
-            GameLoad1();
+            GameLoad2();
         }});
     })
 };
