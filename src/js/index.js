@@ -57,7 +57,6 @@ Room.Index.ppt1 = function () {
 };
 
 Room.Index.ppt2 = function () {
-    console.log(1111);
     cc.ppt(["Read","Index"] , function ( after , callback ) {
         cc.m["Read"].velocity({left:-700},{duration:400,display:"none"});
         cc.m["Index"].css({"opacaity":0}).show().velocity({opacity:1});
