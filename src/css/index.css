@@ -3,6 +3,14 @@
 #Index{
     background-color: #000000;
 }
+#Index .rules{
+    position: absolute;
+    top: 240px;
+    left: 70px;
+    width: 146px;
+    height: 201px;
+    z-index: 100;
+}
 #Index .pic{
     position: absolute; left: 67px; top: 150px;
     width: 548px; height: 814px;
@@ -45,4 +53,11 @@
     background: url("../../img/index/face2_r2.png");
     width:198px;
     height: 198px;
+}
+
+
+#Read .bg{
+    background: url("../../img/index/rules.png");
+    width: 100%;
+    height: 100%;
 }
