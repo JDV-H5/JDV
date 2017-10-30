@@ -13,21 +13,7 @@ function GameLoad1(){
     Loads.loads("border2",  "img/", "border2.png");
     Loads.loads("border3",  "img/", "border3.png");
     Loads.loads("border4",  "img/", "border4.png");
-    // next Load
-    Loads.loads("load2_tit1",  "img/load2/", "tit1.png");
-    Loads.loads("load2_tit2",  "img/load2/", "tit2.png");
-    Loads.loads("load2_tit3",  "img/load2/", "tit3.png");
-    Loads.loads("load2_dot",  "img/load2/", "dot.png");
 
-    Loads.loads("load3_tit1",  "img/load3/", "tit1.png");
-    Loads.loads("load3_tit2",  "img/load3/", "tit2.png");
-    Loads.loads("load3_tit3",  "img/load3/", "tit3.png");
-    Loads.loads("load3_dot",  "img/load3/", "dot.png");
-
-    Loads.loads("load4_tit1",  "img/load4/", "tit1.png");
-    Loads.loads("load4_tit2",  "img/load4/", "tit2.png");
-    Loads.loads("load4_tit3",  "img/load4/", "tit3.png");
-    Loads.loads("load4_dot",  "img/load4/", "dot.png");
     // game
     Loads.loads("game1_bg",  "img/game1/", "bg.png");
 
@@ -71,22 +57,6 @@ function GameLoad1(){
 }
 
 function GameLoad1_cav(){
-
-    //预处理所有加载页
-    $("#GameLoad2 .tit1").html(Loads.get("load2_tit1"));
-    $("#GameLoad2 .tit2").html(Loads.get("load2_tit2"));
-    $("#GameLoad2 .tit3").html(Loads.get("load2_tit3"));
-    $("#GameLoad2 .dot").html(Loads.get("load2_dot"));
-
-    $("#GameLoad3 .tit1").html(Loads.get("load2_tit1"));
-    $("#GameLoad3 .tit2").html(Loads.get("load2_tit2"));
-    $("#GameLoad3 .tit3").html(Loads.get("load2_tit3"));
-    $("#GameLoad3 .dot").html(Loads.get("load2_dot"));
-
-    $("#GameLoad4 .tit1").html(Loads.get("load2_tit1"));
-    $("#GameLoad4 .tit2").html(Loads.get("load2_tit2"));
-    $("#GameLoad4 .tit3").html(Loads.get("load2_tit3"));
-    $("#GameLoad4 .dot").html(Loads.get("load2_dot"));
 
     cav_game1.ccv("game1");
     cav_game1.framerate = 10;

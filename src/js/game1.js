@@ -1,8 +1,8 @@
 Room.GameLoad1 = {};
 Room.GameLoad1.ppt = function(){
-    cc.ppt(["GameLoad1", "Game1"] , function(after , callback){
+    cc.ppt(["GameLoad1", "Game2"] , function(after , callback){
         cc.m["GameLoad1"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["Game1"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000});
+        cc.m["Game2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000});
     })
 };
 
