@@ -38,27 +38,32 @@ Room.Index.go_after = function () {
 };
 
 Room.Index.ppt = function(){
-    cc.ppt(["Index", "GameLoad2"] , function(after , callback){
+    cc.ppt(["Index", "GameLoad1"] , function(after , callback){
         cc.m["Index"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["GameLoad2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
+        cc.m["GameLoad1"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
             after.go();
-            GameLoad2();
+            GameLoad1();
         }});
     })
 };
 
 Room.Index.ppt1 = function () {
+    Dom._unable.show();
     cc.ppt(["Index","Read"] , function ( after , callback ) {
         cc.m["Index"].velocity({opacity:0},{duration:500,display:"none"});
         cc.m["Read"].css({"left":-700}).show().velocity({left:0},{duration:500, complete:function () {
             after.go();
+            Dom._unable.hide();
         }});
     })
 };
 
 Room.Index.ppt2 = function () {
+    Dom._unable.show();
     cc.ppt(["Read","Index"] , function ( after , callback ) {
-        cc.m["Read"].velocity({left:-700},{duration:400,display:"none"});
+        cc.m["Read"].velocity({left:-700},{duration:400,display:"none", complete:function(){
+            Dom._unable.hide();
+        }});
         cc.m["Index"].css({"opacaity":0}).show().velocity({opacity:1});
     })
 };

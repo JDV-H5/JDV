@@ -19,7 +19,7 @@ function GameLoad2(){
     Loads.loads("game2_m1",  "img/game2/", "m1.png");
     Loads.loads("game2_m2",  "img/game2/", "m2.png");
     Loads.loads("game2_m3",  "img/game2/", "m3.png");
-
+    Loads.loads("game2_key0",  "img/game2/", "key0.png");
 
 
     Loads.loads("game2_bg",  "img/game2/", "bg.png");
@@ -78,9 +78,13 @@ function GameLoad2_cav(){
         }
     });
     cav_game2.drawSprite("game2_drawer","",{
+        framerate:8,
         mov: {
             ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
+            run:[0,12,"stop"],
+            stop:[12],
+            back:{ frames: cv.back(12), next:"ini"},
+            no:{ frames: cv.ping(3), next:"ini"}
         }
     });
     cav_game2.drawSprite("game2_brain","",{
@@ -90,9 +94,11 @@ function GameLoad2_cav(){
         }
     });
     cav_game2.drawSprite("game2_gamedoor","",{
+        framerate:8,
         mov: {
             ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
+            run: [0,12,"stop"],
+            stop:[12]
         }
     });
     cav_game2.drawImg("game2_gamedoor_no","",{x:235, y:435});
@@ -126,22 +132,32 @@ function GameLoad2_cav(){
     cav_game2.drawSprite("game2_camera","",{
         mov: {
             ini: [0],
-            run:{ frames: cv.ping(14), next:"ini"}
+            run:[0,8,"stop"],
+            stop:[8],
+            down:[9,14,"ini"]
+
         }
     });
     cav_game2.drawSprite("game2_key","",{
         mov: {
             ini: [0],
-            run:{ frames: cv.ping(14), next:"ini"}
+            run:[0,12,"stop"],
+            stop:[12],
+            back:{ frames: cv.back(12), next:"ini"}
         }
     });
 
+    cav_game2.drawImg("game2_m1","",{x:420-700, y:62, alpha: 0});
+    cav_game2.drawImg("game2_m2","",{x:101-700, y:295, alpha: 0});
+    cav_game2.drawImg("game2_m3","",{x:68-700, y:964, alpha: 0});
+    cav_game2.drawImg("game2_key0","",{x:570-700, y:971, alpha: 0});
 
     cav_game2.drawImg("border1","",{x:0, y:0});
     cav_game2.drawImg("border2","",{x:0, y:55});
     cav_game2.drawImg("border3","",{x:43, y:1095});
     cav_game2.drawImg("border4","",{x:657, y:55});
 
+    cav_game2.drawArea("game2_drawer", "", cv.getArea("game2_drawer"), "#ffffff", {alpha: 0.01});
     cav_game2.drawArea("game2_eye", "", [81,34,155,162], "#ffffff", {alpha: 0.01});
     cav_game2.drawArea("game2_glass", "", [272,90,156,308], "#ffffff", {alpha: 0.01});
     cav_game2.drawArea("game2_curtain", "", [498,324,158,279], "#ffffff", {alpha: 0.01});
@@ -152,6 +168,11 @@ function GameLoad2_cav(){
     cav_game2.drawArea("game2_door", "", [350,953,78,144], "#ffffff", {alpha: 0.01});
     cav_game2.drawArea("game2_key", "", [498,634,158,221], "#ffffff", {alpha: 0.01});
 
+    cav_game2.drawArea("game2_m3", "", [68,964,44,57], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m1", "", [442,42,70,73], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m2", "", [81,289,61,70], "#ffffff", {alpha: 0.01});
+
+    cav_game2.drawArea("game2_key0", "", [570,971,43,119], "#ffffff", {alpha: 0.01});
 
     var drawArr = [
         cav_game2.img["game2_bg"],
@@ -172,6 +193,7 @@ function GameLoad2_cav(){
         cav_game2.sprite["game2_camera"],
         cav_game2.sprite["game2_key"],
 
+        cav_game2.dom["game2_drawer"],
         cav_game2.dom["game2_eye"],
         cav_game2.dom["game2_glass"],
         cav_game2.dom["game2_curtain"],
@@ -181,6 +203,17 @@ function GameLoad2_cav(){
         cav_game2.dom["game2_heart"],
         cav_game2.dom["game2_door"],
         cav_game2.dom["game2_key"],
+
+        cav_game2.dom["game2_m1"],
+        cav_game2.dom["game2_m2"],
+        cav_game2.dom["game2_m3"],
+
+        cav_game2.dom["game2_key0"],
+
+        cav_game2.img["game2_m1"],
+        cav_game2.img["game2_m2"],
+        cav_game2.img["game2_m3"],
+        cav_game2.img["game2_key0"],
 
         cav_game2.img["border1"],
         cav_game2.img["border2"],

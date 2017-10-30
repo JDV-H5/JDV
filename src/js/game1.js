@@ -18,6 +18,7 @@ Room.Game1.ppt = function(){
         cc.m["Game1"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
         cc.m["GameLoad2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
             after.go();
+            GameLoad2();
         }});
     })
 };
@@ -25,6 +26,7 @@ Room.Game1.go_after = function(){
     clearInterval(Hand.game1_yun1);
     clearInterval(Hand.game1_yun2);
     clearInterval(Hand.game1_yun3);
+    cav_game1.sprite["game1_star"].stop();
 };
 Room.Game1.ini = function(){
     // main
@@ -42,11 +44,11 @@ Room.Game1.ini = function(){
         if(PG1.ufo && PG1.ufo_play) {
             if(PG1.glass){
                 cav_game1.sprite["game1_glass2"].gotoAndPlay("run");
-                setTimeout(function(){
+                cav_game1.spriteMovEnd("game1_glass2", function(){
                     cvtw.get(cav_game1.sprite["game1_ufo_light"]).to({alpha:0 }, 700);
                     cav_game1.sprite["game1_clothes"].gotoAndPlay("run");
                     $("#Game1 ._next").css("opacity",0).show().velocity({ opacity: 1}, {delay:3000, duration: 1000 });
-                },1500);
+                });
             }else cav_game1.sprite["game1_glass2"].gotoAndPlay("no");
 
         }else cav_game1.sprite["game1_glass1"].gotoAndPlay("run");
