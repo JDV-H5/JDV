@@ -48,18 +48,22 @@ Room.Index.ppt = function(){
 };
 
 Room.Index.ppt1 = function () {
+    Dom._unable.show();
     cc.ppt(["Index","Read"] , function ( after , callback ) {
         cc.m["Index"].velocity({opacity:0},{duration:500,display:"none"});
         cc.m["Read"].css({"left":-700}).show().velocity({left:0},{duration:500, complete:function () {
             after.go();
+            Dom._unable.hide();
         }});
     })
 };
 
 Room.Index.ppt2 = function () {
-    console.log(1111);
+    Dom._unable.show();
     cc.ppt(["Read","Index"] , function ( after , callback ) {
-        cc.m["Read"].velocity({left:-700},{duration:400,display:"none"});
+        cc.m["Read"].velocity({left:-700},{duration:400,display:"none", complete:function(){
+            Dom._unable.hide();
+        }});
         cc.m["Index"].css({"opacaity":0}).show().velocity({opacity:1});
     })
 };

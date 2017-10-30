@@ -1,41 +1,39 @@
-var cav_game1,
-    PG1 = {};
+var cav_game2,
+    PG2 = {};
 
-function GameLoad1(){
+function GameLoad2(){
 
-    Dom.loadWord = $("#GameLoad1 .loadw");
-    Dom.loadLine = $("#GameLoad1 .line");
+    Dom.loadWord = $("#GameLoad2 .loadw");
+    Dom.loadLine = $("#GameLoad2 .line");
 
-    cav_game1 = new CanvasCreate($("#cav_game1"));
+    cav_game2 = new CanvasCreate($("#cav_game2"));
 
-    // next Load
-    Loads.loads("load2_tit1",  "img/load2/", "tit1.png");
-    Loads.loads("load2_tit2",  "img/load2/", "tit2.png");
-    Loads.loads("load2_tit3",  "img/load2/", "tit3.png");
-    Loads.loads("load2_dot",  "img/load2/", "dot.png");
+    //border
+    Loads.loads("border1",  "img/", "border1.png");
+    Loads.loads("border2",  "img/", "border2.png");
+    Loads.loads("border3",  "img/", "border3.png");
+    Loads.loads("border4",  "img/", "border4.png");
     // game
-    Loads.loads("game1_bg",  "img/game1/", "bg.png");
-    Loads.loads("game1_box",  "img/game1/", "box.png");
-    Loads.loads("game1_yun1",  "img/game1/", "yun1.png");
-    Loads.loads("game1_yun2",  "img/game1/", "yun2.png");
-    Loads.loads("game1_yun3",  "img/game1/", "yun3.png");
+    Loads.loads("game2_eye0",  "img/game2/", "eye0.png");
+    Loads.loads("game2_gamedoor_no",  "img/game2/", "gamedoor_no.png");
+    Loads.loads("game2_m1",  "img/game2/", "m1.png");
+    Loads.loads("game2_m2",  "img/game2/", "m2.png");
+    Loads.loads("game2_m3",  "img/game2/", "m3.png");
+    Loads.loads("game2_key0",  "img/game2/", "key0.png");
 
-    Loads.loads("game1_brain",  "img/game1/", "brain.png");
-    Loads.loads("game1_book1",  "img/game1/", "book1.png");
-    Loads.loads("game1_book2",  "img/game1/", "book2.png");
-    Loads.loads("game1_book3",  "img/game1/", "book3.png");
-    Loads.loads("game1_bookshow",  "img/game1/", "bookshow.png");
-    Loads.loads("game1_clothes",  "img/game1/", "clothes.png");
-    Loads.loads("game1_draw",  "img/game1/", "draw.png");
-    Loads.loads("game1_drawer",  "img/game1/", "drawer.png");
-    Loads.loads("game1_flower",  "img/game1/", "flower.png");
-    Loads.loads("game1_glass1",  "img/game1/", "glass1.png");
-    Loads.loads("game1_glass2",  "img/game1/", "glass2.png");
-    Loads.loads("game1_rocket",  "img/game1/", "rocket.png");
-    Loads.loads("game1_sewing",  "img/game1/", "sewing.png");
-    Loads.loads("game1_star",  "img/game1/", "star.png");
-    Loads.loads("game1_ufo",  "img/game1/", "ufo.png");
-    Loads.loads("game1_ufo_light",  "img/game1/", "ufo_light.png");
+
+    Loads.loads("game2_bg",  "img/game2/", "bg.png");
+    Loads.loads("game2_brain",  "img/game2/", "brain.png");
+    Loads.loads("game2_camera",  "img/game2/", "camera.png");
+    Loads.loads("game2_curtain",  "img/game2/", "curtain.png");
+    Loads.loads("game2_door",  "img/game2/", "door.png");
+    Loads.loads("game2_drawer",  "img/game2/", "drawer.png");
+    Loads.loads("game2_eye",  "img/game2/", "eye.png");
+    Loads.loads("game2_gamedoor",  "img/game2/", "gamedoor.png");
+    Loads.loads("game2_glass",  "img/game2/", "glass.png");
+    Loads.loads("game2_heart",  "img/game2/", "heart.png");
+    Loads.loads("game2_key",  "img/game2/", "key.png");
+    Loads.loads("game2_tv",  "img/game2/", "tv.png");
 
 
     Loads.progress = function(e){
@@ -47,208 +45,183 @@ function GameLoad1(){
     };
     Loads.complete = function(){
 
-        GameLoad1_cav();
-        Room.Game1.ini();
+        GameLoad2_cav();
+        Room.Game2.ini();
 
-        setTimeout( Room.GameLoad1.ppt , 300);
+        setTimeout( Room.GameLoad2.ppt , 300);
     };
     Loads.loading();
 }
 
-function GameLoad1_cav(){
+function GameLoad2_cav(){
 
-    $("#GameLoad2 .tit1").html(Loads.get("load2_tit1"));
-    $("#GameLoad2 .tit2").html(Loads.get("load2_tit2"));
-    $("#GameLoad2 .tit3").html(Loads.get("load2_tit3"));
-    $("#GameLoad2 .dot").html(Loads.get("load2_dot"));
+    cav_game2.ccv("game2");
+    cav_game2.framerate = 10;
 
-    cav_game1.ccv("game1");
-    cav_game1.framerate = 10;
+    cav_game2.drawImg("game2_bg");
 
-    cav_game1.drawImg("game1_bg");
+    cav_game2.drawSprite("game2_eye","",{
+        mov: {
+            ini: [0],
+            run:[0,12,"ini"]
+        },
+        conf:{ alpha:0 }
+    });
+    cav_game2.drawImg("game2_eye0","",{x:119+37, y:74+37, regX:37, regY:37,  scaleX:0.2, scaleY:0.2, alpha:0});
 
-    cav_game1.drawSprite("game1_draw","",{
-        mov: {
-            ini: [0],
-            run: [0,12,"back"],
-            back:{ frames:[12,12,12,8,3,2,1,0], next:"ini"}
-        }
-    });
-    cav_game1.drawSprite("game1_star","",{
-        framerate:6,
-        mov: {
-            ini: { frames: cv.ping(12)}
-        }
-    });
-    cav_game1.drawSprite("game1_book1","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-    cav_game1.drawSprite("game1_book3","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-    cav_game1.drawSprite("game1_book2","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-    cav_game1.drawSprite("game1_brain","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-
-    cav_game1.drawSprite("game1_bookshow","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-    cav_game1.drawSprite("game1_sewing","",{
+    cav_game2.drawSprite("game2_glass","",{
         mov: {
             ini: [0],
             run:[0,12,"stop"],
-            stop:[12]
+            stop:[12],
+            back:{ frames: cv.back(12), next:"ini"}
         }
     });
-
-    cav_game1.drawSprite("game1_rocket","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.mov(12, 3), next:"ini"}
-        }
-    });
-
-    cav_game1.drawSprite("game1_glass1","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-    cav_game1.drawSprite("game1_glass2","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"},
-            no:{ frames: cv.ping(3), next:"ini"}
-        }
-    });
-
-    cav_game1.drawSprite("game1_drawer","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-
-    cav_game1.drawSprite("game1_flower","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(12), next:"ini"}
-        }
-    });
-
-    cav_game1.drawSprite("game1_ufo","",{
-        mov: {
-            ini: [0],
-            run:{ frames: cv.ping(19), next:"ini"},
-            play:[0,7,"loop"],
-            loop:[8,19,"loop"]
-        }
-    });
-
-    cav_game1.drawSprite("game1_ufo_light","",{
-        mov: {
-            ini: [0],
-            play:[0,7,"loop"],
-            loop:[8,19,"loop"]
-        }
-    });
-
-    cav_game1.drawSprite("game1_clothes","",{
+    cav_game2.drawSprite("game2_drawer","",{
         framerate:8,
         mov: {
             ini: [0],
-            run:[0,24,"stop"],
-            stop:[24]
+            run:[0,12,"stop"],
+            stop:[12],
+            back:{ frames: cv.back(12), next:"ini"},
+            no:{ frames: cv.ping(3), next:"ini"}
+        }
+    });
+    cav_game2.drawSprite("game2_brain","",{
+        mov: {
+            ini: [0],
+            run:{ frames: cv.ping(12), next:"ini"}
+        }
+    });
+    cav_game2.drawSprite("game2_gamedoor","",{
+        framerate:8,
+        mov: {
+            ini: [0],
+            run: [0,12,"stop"],
+            stop:[12]
+        }
+    });
+    cav_game2.drawImg("game2_gamedoor_no","",{x:235, y:435});
+
+    cav_game2.drawSprite("game2_curtain","",{
+        mov: {
+            ini: [0],
+            run:[0,12,"stop"],
+            stop:[12],
+            back:{ frames: cv.back(12), next:"ini"}
+        }
+    });
+    cav_game2.drawSprite("game2_tv","",{
+        mov: {
+            ini: [0],
+            run:[0,12,"ini"]
+        }
+    });
+    cav_game2.drawSprite("game2_heart","",{
+        mov: {
+            ini: [0],
+            run:{ frames: cv.ping(12), next:"ini"}
+        }
+    });
+    cav_game2.drawSprite("game2_door","",{
+        mov: {
+            ini: [0],
+            run:{ frames: cv.ping(12), next:"ini"}
+        }
+    });
+    cav_game2.drawSprite("game2_camera","",{
+        mov: {
+            ini: [0],
+            run:[0,8,"stop"],
+            stop:[8],
+            down:[9,14,"ini"]
+
+        }
+    });
+    cav_game2.drawSprite("game2_key","",{
+        mov: {
+            ini: [0],
+            run:[0,12,"stop"],
+            stop:[12],
+            back:{ frames: cv.back(12), next:"ini"}
         }
     });
 
-    cav_game1.drawImg("game1_box");
+    cav_game2.drawImg("game2_m1","",{x:420-700, y:62, alpha: 0});
+    cav_game2.drawImg("game2_m2","",{x:101-700, y:295, alpha: 0});
+    cav_game2.drawImg("game2_m3","",{x:68-700, y:964, alpha: 0});
+    cav_game2.drawImg("game2_key0","",{x:570-700, y:971, alpha: 0});
 
-    cav_game1.drawArea("game1_draw", "", cv.getArea("game1_draw"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_book1", "", cv.getArea("game1_book1"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_book2", "", cv.getArea("game1_book2"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_book3", "", cv.getArea("game1_book3"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_brain", "", [532,242,123,181], "#ffffff", {alpha: 0.01});
+    cav_game2.drawImg("border1","",{x:0, y:0});
+    cav_game2.drawImg("border2","",{x:0, y:55});
+    cav_game2.drawImg("border3","",{x:43, y:1095});
+    cav_game2.drawImg("border4","",{x:657, y:55});
 
-    cav_game1.drawArea("game1_sewing", "", [441,498,143,139], "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_rocket", "", cv.getArea("game1_rocket"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_bookshow", "", [42,649,95,176], "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_glass1", "", [42,423,95,176], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_drawer", "", cv.getArea("game2_drawer"), "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_eye", "", [81,34,155,162], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_glass", "", [272,90,156,308], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_curtain", "", [498,324,158,279], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_brain", "", [92,672,109,89], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_camera", "", [60,831,132,121], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_tv", "", [236,774,192,152], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_heart", "", [172,971,138,100], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_door", "", [350,953,78,144], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_key", "", [498,634,158,221], "#ffffff", {alpha: 0.01});
 
-    cav_game1.drawArea("game1_drawer", "", cv.getArea("game1_drawer"), "#ffffff", {alpha: 0.01});
-    cav_game1.drawArea("game1_flower", "", [483,965,165,122], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m3", "", [68,964,44,57], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m1", "", [442,42,70,73], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m2", "", [81,289,61,70], "#ffffff", {alpha: 0.01});
 
-    cav_game1.drawArea("game1_ufo", "", [0,0,170,367], "#ffffff", {alpha: 0.01});
-
+    cav_game2.drawArea("game2_key0", "", [570,971,43,119], "#ffffff", {alpha: 0.01});
 
     var drawArr = [
-        cav_game1.img["game1_bg"],
+        cav_game2.img["game2_bg"],
 
-        cav_game1.sprite["game1_draw"],
-        cav_game1.sprite["game1_star"],
+        cav_game2.sprite["game2_eye"],
+        cav_game2.img["game2_eye0"],
 
-        cav_game1.sprite["game1_book1"],
-        cav_game1.sprite["game1_book3"],
-        cav_game1.sprite["game1_book2"],
-        cav_game1.sprite["game1_brain"],
+        cav_game2.sprite["game2_glass"],
+        cav_game2.sprite["game2_drawer"],
+        cav_game2.sprite["game2_brain"],
+        cav_game2.sprite["game2_gamedoor"],
+        cav_game2.img["game2_gamedoor_no"],
 
-        cav_game1.img["game1_brain"],
+        cav_game2.sprite["game2_curtain"],
+        cav_game2.sprite["game2_tv"],
+        cav_game2.sprite["game2_heart"],
+        cav_game2.sprite["game2_door"],
+        cav_game2.sprite["game2_camera"],
+        cav_game2.sprite["game2_key"],
 
-        cav_game1.sprite["game1_clothes"],
+        cav_game2.dom["game2_drawer"],
+        cav_game2.dom["game2_eye"],
+        cav_game2.dom["game2_glass"],
+        cav_game2.dom["game2_curtain"],
+        cav_game2.dom["game2_brain"],
+        cav_game2.dom["game2_camera"],
+        cav_game2.dom["game2_tv"],
+        cav_game2.dom["game2_heart"],
+        cav_game2.dom["game2_door"],
+        cav_game2.dom["game2_key"],
 
-        cav_game1.sprite["game1_ufo"],
-        cav_game1.sprite["game1_ufo_light"],
+        cav_game2.dom["game2_m1"],
+        cav_game2.dom["game2_m2"],
+        cav_game2.dom["game2_m3"],
 
-        cav_game1.sprite["game1_sewing"],
-        cav_game1.sprite["game1_rocket"],
-        cav_game1.sprite["game1_bookshow"],
-        cav_game1.sprite["game1_glass1"],
-        cav_game1.sprite["game1_glass2"],
+        cav_game2.dom["game2_key0"],
 
-        cav_game1.sprite["game1_drawer"],
-        cav_game1.sprite["game1_flower"],
+        cav_game2.img["game2_m1"],
+        cav_game2.img["game2_m2"],
+        cav_game2.img["game2_m3"],
+        cav_game2.img["game2_key0"],
 
-        cav_game1.img["game1_box"],
-
-        // btn
-        cav_game1.dom["game1_book1"],
-        cav_game1.dom["game1_book1"],
-        cav_game1.dom["game1_book2"],
-        cav_game1.dom["game1_book3"],
-        cav_game1.dom["game1_brain"],
-
-        cav_game1.dom["game1_sewing"],
-        cav_game1.dom["game1_rocket"],
-        cav_game1.dom["game1_bookshow"],
-        cav_game1.dom["game1_glass1"],
-
-        cav_game1.dom["game1_drawer"],
-        cav_game1.dom["game1_flower"],
-
-        cav_game1.dom["game1_draw"],
-
-        cav_game1.dom["game1_ufo"]
+        cav_game2.img["border1"],
+        cav_game2.img["border2"],
+        cav_game2.img["border3"],
+        cav_game2.img["border4"]
     ];
 
-    cav_game1.draw("game1", drawArr);
-    cav_game1.show("game1");
+    cav_game2.draw("game2", drawArr);
+    cav_game2.show("game2");
 
 }

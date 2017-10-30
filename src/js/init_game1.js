@@ -13,7 +13,10 @@ function GameLoad1(){
     Loads.loads("border2",  "img/", "border2.png");
     Loads.loads("border3",  "img/", "border3.png");
     Loads.loads("border4",  "img/", "border4.png");
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     // game
     Loads.loads("game1_bg",  "img/game1/", "bg.png");
 
@@ -58,6 +61,11 @@ function GameLoad1(){
 
 function GameLoad1_cav(){
 
+<<<<<<< HEAD
+=======
+    //预处理所有加载页
+
+>>>>>>> master
     cav_game1.ccv("game1");
     cav_game1.framerate = 10;
 
