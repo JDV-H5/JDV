@@ -168,9 +168,9 @@ function GameLoad2_cav(){
     cav_game2.drawArea("game2_door", "", [350,953,78,144], "#ffffff", {alpha: 0.01});
     cav_game2.drawArea("game2_key", "", [498,634,158,221], "#ffffff", {alpha: 0.01});
 
-    cav_game2.drawArea("game2_m3", "", [68,964,44,57], "#ffffff", {alpha: 0.01});
-    cav_game2.drawArea("game2_m1", "", [442,42,70,73], "#ffffff", {alpha: 0.01});
-    cav_game2.drawArea("game2_m2", "", [81,289,61,70], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m3", "", [46,943,88,104], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m1", "", [425,27,92,115], "#ffffff", {alpha: 0.01});
+    cav_game2.drawArea("game2_m2", "", [56,259,107,126], "#ffffff", {alpha: 0.01});
 
     cav_game2.drawArea("game2_key0", "", [570,971,43,119], "#ffffff", {alpha: 0.01});
 

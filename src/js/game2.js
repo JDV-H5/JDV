@@ -16,7 +16,10 @@ Room.Game2.dom = function(){
 Room.Game2.ppt = function(){
     cc.ppt(["Game2", "GameLoad3"] , function(after , callback){
         cc.m["Game2"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["GameLoad3"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000});
+        cc.m["GameLoad3"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
+            // after.go();
+            GameLoad3();
+        }});
     })
 };
 
@@ -36,11 +39,11 @@ Room.Game2.ini = function(){
     cav_game2.dom["game2_m3"].on("click", function () {
         if(!PG2.m3_1) return;
         PG2.m3 = 1;
-        cvtw.get(cav_game2.img["game2_m3"]).to({x:68 , scaleX:1.3,scaleY:1.3 }, 0).wait(100).to({alpha:1 }, 300);
+        cvtw.get(cav_game2.img["game2_m3"]).to({x:68 }, 0).wait(100).to({alpha:1 , scaleX:1.4,scaleY:1.4 }, 300);
     });
     cav_game2.drag("game2_m3", cav_game2.img["game2_m3"], {x:-19,y:-38}, function(x,y){
         if(cv.Clamp(x, 343-50, 343+50) && cv.Clamp(y, 547-50, 547+50)){
-            cvtw.get(cav_game2.img["game2_m3"]).to({x:347, y:556 }, 100);
+            cvtw.get(cav_game2.img["game2_m3"]).to({x:347, y:556 ,scaleX:1,scaleY:1}, 100);
             PG2.m3_ok = 1;
             cav_game2.ifDrag["game2_m3"] = 0;
         }
@@ -78,11 +81,11 @@ Room.Game2.ini = function(){
     cav_game2.dom["game2_m1"].on("click", function () {
         if(!PG2.m1_1 || !PG2.m3_ok) return;
         PG2.m1 = 1;
-        cvtw.get(cav_game2.img["game2_m1"]).to({x:420}, 0).wait(100).to({alpha:1 }, 300);
+        cvtw.get(cav_game2.img["game2_m1"]).to({x:420}, 0).wait(100).to({alpha:1, scaleX:1.4,scaleY:1.4 }, 300);
     });
     cav_game2.drag("game2_m1", cav_game2.img["game2_m1"], {x:-20,y:-25}, function(x,y){
-        if(cv.Clamp(x, 293-10, 293+10) && cv.Clamp(y, 507-10, 507+10)){
-            cvtw.get(cav_game2.img["game2_m1"]).to({x:294, y:508 }, 100);
+        if(cv.Clamp(x, 290-50, 293+50) && cv.Clamp(y, 500-50, 500+50)){
+            cvtw.get(cav_game2.img["game2_m1"]).to({x:294, y:508, scaleX:1,scaleY:1 }, 100);
             PG2.m1_ok = 1;
             cav_game2.ifDrag["game2_m1"] = 0;
         }
@@ -102,14 +105,14 @@ Room.Game2.ini = function(){
     cav_game2.dom["game2_m2"].on("click", function () {
         if(!PG2.m2_1 || !PG2.m3_ok ||!PG2.m1_ok) return;
         PG2.m2 = 1;
-        cvtw.get(cav_game2.img["game2_m2"]).to({x:101}, 0).wait(100).to({alpha:1 }, 300);
+        cvtw.get(cav_game2.img["game2_m2"]).to({x:101}, 0).wait(100).to({alpha:1, scaleX:1.4,scaleY:1.4 }, 300);
     });
     cav_game2.drag("game2_m2", cav_game2.img["game2_m2"], {x:-22,y:-38}, function(x,y){
-        if(cv.Clamp(x, 302-10, 302+10) && cv.Clamp(y, 557-10, 557+10)){
-            cvtw.get(cav_game2.img["game2_m2"]).to({x:303, y:558 }, 100);
+        if(cv.Clamp(x, 291-50, 291+50) && cv.Clamp(y, 558-50, 558+50)){
+            cvtw.get(cav_game2.img["game2_m2"]).to({x:303, y:558, scaleX:1,scaleY:1 }, 100);
             PG2.m2_ok = 1;
             cav_game2.ifDrag["game2_m2"] = 0;
-            cav_game2_key();
+            // cav_game2_key();
 
             cav_game2.img["game2_m1"].alpha = 0;
             cav_game2.img["game2_m2"].alpha = 0;
@@ -138,10 +141,11 @@ Room.Game2.ini = function(){
         PG2.keyget = 1;
         clearTimeout(Hand.cav_game2_key);
         cav_game2.sprite["game2_key"].gotoAndPlay("back");
-        cvtw.get(cav_game2.img["game2_key0"]).to({x:570}, 0).wait(100).to({alpha:1 }, 300);
+        cvtw.get(cav_game2.img["game2_key0"]).to({x:570}, 0).wait(100).to({alpha:1, scaleX:1.4,scaleY:1.4 }, 300);
     });
     cav_game2.drag("game2_key0", cav_game2.img["game2_key0"], {x:-16,y:-52}, function(x,y){
-        if(cv.Clamp(x, 331-20, 331+20) && cv.Clamp(y, 607-20, 607+20)){
+        console.log(x,y);
+        if(cv.Clamp(x, 321-50, 321+50) && cv.Clamp(y, 611-50, 611+50)){
             PG2.ok = 1;
             cvtw.get(cav_game2.img["game2_key0"]).wait(100).to({alpha:0 }, 300).call(function(){
                 cav_game2_ok();
@@ -151,7 +155,7 @@ Room.Game2.ini = function(){
     function cav_game2_ok(){
 
         cav_game2.sprite["game2_gamedoor"].gotoAndPlay("run");
-        $("#Game2 ._next").css("opacity",0).show().velocity({ opacity: 1}, {delay:3000, duration: 1000 });
+        $("#Game2 ._next").css("opacity",0).show().velocity({ opacity: 1}, {delay:2300, duration: 1000 });
     }
 
 
