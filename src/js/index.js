@@ -28,8 +28,8 @@ Room.Index.dom = function(){
 };
 
 Room.Index.coming = function(){
-    $("#Index .topWheel").velocity({ rotateZ:["360deg","0deg"] }, { easing:"linear", duration: 2000, loop: true});
-    $("#Index .bottomWheel").velocity({ rotateZ:["360deg","0deg"] }, { easing:"linear", duration: 2000, loop: true});
+    $("#Index .topWheel").velocity({ rotateZ:["360deg","0deg"] }, { easing:"linear", duration: 4500, loop: true});
+    $("#Index .bottomWheel").velocity({ rotateZ:["360deg","0deg"] }, { easing:"linear", duration: 4500, loop: true});
 };
 
 Room.Index.go_after = function () {
@@ -38,11 +38,11 @@ Room.Index.go_after = function () {
 };
 
 Room.Index.ppt = function(){
-    cc.ppt(["Index", "GameLoad3"] , function(after , callback){
+    cc.ppt(["Index", "GameLoad1"] , function(after , callback){
         cc.m["Index"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["GameLoad3"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
+        cc.m["GameLoad1"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
             after.go();
-            GameLoad3();
+            GameLoad1();
         }});
     })
 };

@@ -1,8 +1,8 @@
 Room.GameLoad1 = {};
 Room.GameLoad1.ppt = function(){
-    cc.ppt(["GameLoad1", "Game2"] , function(after , callback){
+    cc.ppt(["GameLoad1", "Game1"] , function(after , callback){
         cc.m["GameLoad1"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-        cc.m["Game2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000});
+        cc.m["Game1"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000});
     })
 };
 
@@ -27,6 +27,7 @@ Room.Game1.go_after = function(){
     clearInterval(Hand.game1_yun2);
     clearInterval(Hand.game1_yun3);
     cav_game1.sprite["game1_star"].stop();
+    cav_game1.sprite["game1_ufo"].stop();
 };
 Room.Game1.ini = function(){
     // main
