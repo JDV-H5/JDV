@@ -29,6 +29,7 @@ Room.Game2.ini = function(){
     //阶段1
     cav_game2.dom["game2_camera"].on("click", function () {
         if(PG2.m3_1 || PG2.m3) return;
+        mp3_play("game2_camera");
         cav_game2.sprite["game2_camera"].gotoAndPlay("run");
         PG2.m3_1 = 1;
         setTimeout(function(){
@@ -53,6 +54,7 @@ Room.Game2.ini = function(){
     cav_game2.dom["game2_curtain"].on("click", function () {
         if(PG2.m1 || PG2.m1_1) return;
         if(!PG2.m1_0){
+            mp3_play("game2_curtain");
             cav_game2.sprite["game2_curtain"].gotoAndPlay("run");
             PG2.m1_0 = 1;
 
@@ -63,6 +65,7 @@ Room.Game2.ini = function(){
 
         }else{
             clearTimeout(Hand.game2_curtain);
+            mp3_play("game2_drawer");
             cav_game2.sprite["game2_drawer"].gotoAndPlay("run");
             PG2.m1_1 = 1;
 
@@ -95,6 +98,7 @@ Room.Game2.ini = function(){
     //阶段3
     cav_game2.dom["game2_glass"].on("click", function () {
         if(PG2.m2_1) return;
+        mp3_play("game2_glass");
         cav_game2.sprite["game2_glass"].gotoAndPlay("run");
         PG2.m2_1 = 1;
         setTimeout(function(){
@@ -129,6 +133,7 @@ Room.Game2.ini = function(){
     });
     function cav_game2_key(){
         if(PG2.key || PG2.keyget) return;
+        mp3_play("game2_key");
         cav_game2.sprite["game2_key"].gotoAndPlay("run");
         PG2.key = 1;
         Hand.cav_game2_key = setTimeout(function(){
@@ -144,7 +149,6 @@ Room.Game2.ini = function(){
         cvtw.get(cav_game2.img["game2_key0"]).to({x:570}, 0).wait(100).to({alpha:1, scaleX:1.4,scaleY:1.4 }, 300);
     });
     cav_game2.drag("game2_key0", cav_game2.img["game2_key0"], {x:-16,y:-52}, function(x,y){
-        console.log(x,y);
         if(cv.Clamp(x, 321-50, 321+50) && cv.Clamp(y, 611-50, 611+50)){
             PG2.ok = 1;
             cvtw.get(cav_game2.img["game2_key0"]).wait(100).to({alpha:0 }, 300).call(function(){
@@ -153,7 +157,7 @@ Room.Game2.ini = function(){
         }
     });
     function cav_game2_ok(){
-
+        mp3_play("game2_gamedoor");
         cav_game2.sprite["game2_gamedoor"].gotoAndPlay("run");
         $("#Game2 ._next").css("opacity",0).show().velocity({ opacity: 1}, {delay:2300, duration: 1000 });
     }
@@ -161,16 +165,21 @@ Room.Game2.ini = function(){
 
     // else
     cav_game2.dom["game2_brain"].on("click", function () {
+        mp3_play("game2_brain");
         cav_game2.sprite["game2_brain"].gotoAndPlay("run");
     });
 
     cav_game2.dom["game2_tv"].on("click", function () {
+        mp3_play("game2_tv");
+        mp3_play("game2_tv2");
         cav_game2.sprite["game2_tv"].gotoAndPlay("run");
     });
     cav_game2.dom["game2_heart"].on("click", function () {
+        mp3_play("game2_heart");
         cav_game2.sprite["game2_heart"].gotoAndPlay("run");
     });
     cav_game2.dom["game2_door"].on("click", function () {
+        mp3_play("game2_door");
         cav_game2.sprite["game2_door"].gotoAndPlay("run");
     });
     cav_game2.dom["game2_eye"].on("click", function () {

@@ -7,195 +7,262 @@ Room.GameLoad3.ppt = function(){
 };
 
 Room.Game3 = {};
-// Room.Game3.dom = function(){
-//     $("#Game1 ._next .btn").tap(function(e){
-//         cc.tap(e);
-//         Room.Game1.ppt();
-//     })
-// };
-// Room.Game1.ppt = function(){
-//     cc.ppt(["Game1", "GameLoad2"] , function(after , callback){
-//         cc.m["Game1"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
-//         cc.m["GameLoad2"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
-//             after.go();
-//         }});
-//     })
-// };
-// Room.Game3.go_after = function(){
-//
-// };
+Room.Game3.dom = function(){
+    $("#Game3 ._next .btn").tap(function(e){
+        cc.tap(e);
+        Room.Game3.ppt();
+    })
+};
+Room.Game3.ppt = function(){
+    cc.ppt(["Game3", "GameLoad4"] , function(after , callback){
+        cc.m["Game3"].velocity({ opacity: 0}, { duration: 1000, display: "none" });
+        cc.m["GameLoad4"].css({"opacity": 0}).show().velocity({ opacity: 1}, { duration: 1000, complete:function(){
+            after.go();
+            GameLoad4();
+        }});
+    })
+};
+Room.Game3.go_after = function(){
+    clearTimeout(Hand.game3_lamp);
+    clearTimeout(Hand.game3_lightEnd);
+
+    for(var i=1; i<=13; i++)
+        if(Hand["game3_light"+i]) clearTimeout(Hand["game3_light"+i]);
+        if(cav_game3.img["game3_box"+i]) cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+
+    cvtw.removeTweens(cav_game3.img["game3_lamp0"]);
+    cvtw.removeTweens(cav_game3.img["game3_lamp"]);
+};
+
 Room.Game3.ini = function(){
-    // main
 
+    //main
+    var light_time = 7000;
+    PG3.play = 0;
 
+    function game3_play(i){
+        switch(i)
+        {
+            case 1:
+                PG3.play = 1;
+                break;
+            case 2:
+                if(!PG3.light4 || PG3.play!=1) {
+                    PG3.play = 0;
+                    return false;
+                }
+                PG3.play = 2;
+                break;
+            case 3:
+                if(!PG3.light4 || !PG3.light5 || PG3.play!=2) {
+                    PG3.play = 0;
+                    return false;
+                }
+                PG3.play = 3;
+                break;
+            case 4:
+                if(!PG3.light4 || !PG3.light5 || !PG3.light8 || PG3.play!=3) {
+                    PG3.play = 0;
+                    return false;
+                }
+                PG3.play = 4;
+                break;
+            case 5:
+                if(!PG3.light4 || !PG3.light5 || !PG3.light8 || !PG3.light7 || PG3.play!=4) {
+                    PG3.play = 0;
+                    return false;
+                }
+                PG3.play = 5;
+                break;
+            case 6:
+                if(!PG3.light4 || !PG3.light5 || !PG3.light8 || !PG3.light7 || !PG3.lamp || PG3.play!=5) {
+                    PG3.play = 0;
+                    return false;
+                }
+                PG3.play = 6;
+                break;
+            case 7:
+                if(!PG3.light4 || !PG3.light5 || !PG3.light8 || !PG3.light7 || !PG3.lamp || !PG3.light11 ||  PG3.play!=5) {
+                    PG3.play = 0;
+                    return false;
+                }
 
-    // else
-    cav_game3.img["game3_borders1"].on("click", function () {
-        cav_game3.sprite["game3_light3_1"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_1"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders1"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders1"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_1"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders1"]);
-            cvtw.get(cav_game3.img["game3_borders1"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders2"].on("click", function () {
-        cav_game3.sprite["game3_light3_2"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_2"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders2"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders2"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_2"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders2"]);
-            cvtw.get(cav_game3.img["game3_borders2"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders3"].on("click", function () {
-        cav_game3.sprite["game3_light3_3"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_3"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders3"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders3"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_3"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders3"]);
-            cvtw.get(cav_game3.img["game3_borders3"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders4"].on("click", function () {
-        cav_game3.sprite["game3_light3_4"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_4"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders4"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders4"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_4"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders4"]);
-            cvtw.get(cav_game3.img["game3_borders4"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders5"].on("click", function () {
-        cav_game3.sprite["game3_light3_5"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_5"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders5"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders5"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_5"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders5"]);
-            cvtw.get(cav_game3.img["game3_borders5"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders6"].on("click", function () {
-        cav_game3.sprite["game3_light5_1"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light5_1"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders6"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders6"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light5_1"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders6"]);
-            cvtw.get(cav_game3.img["game3_borders6"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders7"].on("click", function () {
-        cav_game3.sprite["game3_light3_6"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_6"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders7"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders7"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_6"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders7"]);
-            cvtw.get(cav_game3.img["game3_borders7"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders8"].on("click", function () {
-        cav_game3.sprite["game3_light3_7"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_7"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders8"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders8"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_7"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders8"]);
-            cvtw.get(cav_game3.img["game3_borders8"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders9"].on("click", function () {
-        cav_game3.sprite["game3_light3_8"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_8"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders9"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders9"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_8"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders9"]);
-            cvtw.get(cav_game3.img["game3_borders9"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders10"].on("click", function () {
-        cav_game3.sprite["game3_light3_9"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_9"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders10"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders10"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_9"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders10"]);
-            cvtw.get(cav_game3.img["game3_borders10"]).to({alpha:0.01}, 700);
-        },1000)
-    });cav_game3.img["game3_borders11"].on("click", function () {
-        cav_game3.sprite["game3_light5_2"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light5_2"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders11"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders11"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light5_2"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders11"]);
-            cvtw.get(cav_game3.img["game3_borders11"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders12"].on("click", function () {
-        cav_game3.sprite["game3_light3_10"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_10"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders12"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders12"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_10"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders12"]);
-            cvtw.get(cav_game3.img["game3_borders12"]).to({alpha:0.01}, 700);
-        },1000)
-    });
-    cav_game3.img["game3_borders13"].on("click", function () {
-        cav_game3.sprite["game3_light3_11"].gotoAndPlay("run");
-        cvtw.get(cav_game3.sprite["game3_light3_11"]).to({alpha:1 }, 700);
-        cvtw.get(cav_game3.img["game3_borders13"]).to({alpha:1 }, 700).call(function(){
-            cvtw.get(cav_game3.img["game3_borders13"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-        });
-        setTimeout(function () {
-            cvtw.get(cav_game3.sprite["game3_light3_11"]).to({alpha:0 }, 700);
-            cvtw.removeTweens(cav_game3.img["game3_borders13"]);
-            cvtw.get(cav_game3.img["game3_borders13"]).to({alpha:0.01}, 700);
-        },1000)
+                game3_finish();
+                break;
+
+        }
+    }
+
+    function game3_finish(){
+        mp3_play("game3_magic");
+        cav_game3.sprite["game3_ok"].gotoAndPlay("run");
+        $("#Game3 ._next").css("opacity",0).show().velocity({ opacity: 1}, {delay:3000, duration: 1000 });
+    }
+
+    //l1
+    box_click(4, 1);
+
+    //l2
+    box_click(5, 2);
+
+    //l3
+    box_click(8, 3);
+
+    //l4
+    box_click(7, 4);
+
+    //l5
+    cav_game3.dom["game3_lamp"].on("click", function () {
+        if(!PG3.lamp){
+            PG3.lamp = 1;
+            game3_play(5);
+
+            mp3_play("game3_fire");
+            cvtw.get(cav_game3.mark["game3_lamp"]).to({scaleX:1, scaleY:1 }, 0);
+
+            Hand.game3_lamp = setTimeout(function(){
+                PG3.lamp = 0;
+                cvtw.get(cav_game3.mark["game3_lamp"]).to({scaleX:0.01, scaleY:0.01 },0);
+            },light_time)
+        }else{
+            clearTimeout(Hand.game3_lamp);
+            PG3.lamp = 0;
+            cvtw.get(cav_game3.mark["game3_lamp"]).to({scaleX:0.01, scaleY:0.01 }, 0);
+        }
     });
 
-    // cav_game3.img["game3_borders14"].on("click", function () {
-    //     cav_game3.sprite["game3_book"].gotoAndPlay("run");
-    //     cvtw.get(cav_game3.sprite["game3_book"]).to({alpha:1 }, 700);
-    //     cvtw.get(cav_game3.img["game3_borders14"]).to({alpha:1 }, 700).call(function(){
-    //         cvtw.get(cav_game3.img["game3_borders14"], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
-    //     });
-    //     setTimeout(function () {
-    //         cvtw.get(cav_game3.sprite["game3_book"]).to({alpha:0 }, 700);
-    //         cvtw.removeTweens(cav_game3.img["game3_borders14"]);
-    //         cvtw.get(cav_game3.img["game3_borders14"]).to({alpha:0.01}, 700);
-    //     },1000)
-    // });
+    // l6
+    box_click(6, 6);
+
+    // l7
+    cav_game3.dom["game3_lightEnd"].on("click", function () {
+        if(!PG3.lightEnd){
+            PG3.lightEnd = 1;
+            game3_play(7);
+
+            mp3_play("game3_fire");
+            cav_game3.sprite["game3_lightEnd"].gotoAndPlay("run");
+            cvtw.get(cav_game3.sprite["game3_lightEnd"]).to({alpha:1 }, 700);
+
+            Hand.game3_lightEnd = setTimeout(function(){
+                PG3.lightEnd = 0;
+                cvtw.get(cav_game3.sprite["game3_lightEnd"]).to({alpha:0 }, 700);
+            },light_time)
+        }else{
+            clearTimeout(Hand.game3_lightEnd);
+            PG3.lightEnd = 0;
+            cvtw.get(cav_game3.sprite["game3_lightEnd"]).to({alpha:0 }, 700);
+        }
+    });
+
+
+    //else
+    box_click(1);
+    box_click(2);
+    box_click(3);
+    box_click(11);
+
+
+    function box_click(i, play){
+        cav_game3.img["game3_box"+i].on("click", function () {
+            if(!PG3["light"+i]){
+                PG3["light"+i] = 1;
+                if(play) game3_play(play);
+
+                mp3_play("game3_fire");
+                cav_game3.sprite["game3_light"+i].gotoAndPlay("run");
+                cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:1 }, 700);
+                cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:1 }, 700).call(function(){
+                    cvtw.get(cav_game3.img["game3_box"+i], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
+                });
+
+                Hand["game3_light"+i] = setTimeout(function(){
+                    PG3["light"+i] = 0;
+                    cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:0 }, 700);
+                    cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+                    cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:0.01}, 700);
+                },light_time)
+            }else{
+                clearTimeout(Hand["game3_light"+i]);
+                PG3["light"+i] = 0;
+                cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:0 }, 700);
+                cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+                cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:0.01}, 700);
+            }
+        });
+
+    }
+
+    box_click2(9);
+    box_click2(10);
+    box_click2(13);
+
+    function box_click2(i){
+        cav_game3.img["game3_box"+i].on("click", function () {
+            if(!PG3["light"+i]){
+                PG3["light"+i] = 1;
+
+                mp3_play("game3_light");
+                cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:1 }, 700).call(function(){
+                    cvtw.get(cav_game3.img["game3_box"+i], {loop:true}).to({alpha:0.85}, 600).to({alpha:1 }, 600);
+                });
+
+                Hand["game3_light"+i] = setTimeout(function(){
+                    PG3["light"+i] = 0;
+                    cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+                    cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:0.01}, 700);
+                },light_time)
+            }else{
+                clearTimeout(Hand["game3_light"+i]);
+                PG3["light"+i] = 0;
+                cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+                cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:0.01}, 700);
+            }
+        });
+
+    }
+
+    box_click3(11);
+    box_click3(12);
+    function box_click3(i){
+        cav_game3.dom["game3_box"+i].on("click", function () {
+            if(!PG3["light"+i]){
+                PG3["light"+i] = 1;
+
+                mp3_play("game3_fire");
+                cav_game3.sprite["game3_light"+i].gotoAndPlay("run");
+                cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:1 }, 700);
+                cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:1 }, 700).call(function(){
+                    cvtw.get(cav_game3.img["game3_box"+i], {loop:true}).to({alpha:0.75}, 600).to({alpha:1 }, 600);
+                });
+
+                Hand["game3_light"+i] = setTimeout(function(){
+                    PG3["light"+i] = 0;
+                    cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:0 }, 700);
+                    cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+                    cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:0.01}, 700);
+                },light_time)
+            }else{
+                clearTimeout(Hand["game3_light"+i]);
+                PG3["light"+i] = 0;
+                cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:0 }, 700);
+                cvtw.removeTweens(cav_game3.img["game3_box"+i]);
+                cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:0.01}, 700);
+            }
+        });
+
+    }
+
+    cav_game3.dom["game3_book"].on("click", function () {
+        mp3_play("game3_book");
+        cav_game3.sprite["game3_book"].gotoAndPlay("run");
+    });
+
+    cav_game3.dom["game3_book2"].on("click", function () {
+        mp3_play("game3_book");
+        cav_game3.sprite["game3_book2"].gotoAndPlay("run");
+    });
+
+    cvtw.get(cav_game3.img["game3_lamp0"], {loop:true}).to({rotation:0.5 }, 2000).to({rotation:0 }, 2000).to({rotation:-0.5 }, 2000).to({rotation:0 }, 2000);
+    cvtw.get(cav_game3.img["game3_lamp"], {loop:true}).to({rotation:0.5 }, 2000).to({rotation:0 }, 2000).to({rotation:-0.5 }, 2000).to({rotation:0 }, 2000);
 };

@@ -38,6 +38,9 @@ function GameLoad1(){
     Loads.loads("game1_ufo",  "img/game1/", "ufo.png");
     Loads.loads("game1_ufo_light",  "img/game1/", "ufo_light.png");
 
+    game1_load_mp3();
+
+    Loads.loads("x",  "img/", "x.png");
 
     Loads.progress = function(e){
         var i = parseInt(e.loaded*100);
@@ -54,6 +57,20 @@ function GameLoad1(){
         setTimeout( Room.GameLoad1.ppt , 300);
     };
     Loads.loading();
+}
+
+function game1_load_mp3(){
+    Loads.loads("mp3_game1_book",  "mp3/game1/", "book.mp3");
+    Loads.loads("mp3_game1_bookshow",  "mp3/game1/", "bookshow.mp3");
+    Loads.loads("mp3_game1_brain",  "mp3/game1/", "brain.mp3");
+    Loads.loads("mp3_game1_clothes",  "mp3/game1/", "clothes.mp3");
+    Loads.loads("mp3_game1_draw",  "mp3/game1/", "draw.mp3");
+    Loads.loads("mp3_game1_drawer",  "mp3/game1/", "drawer.mp3");
+    Loads.loads("mp3_game1_flower",  "mp3/game1/", "flower.mp3");
+    Loads.loads("mp3_game1_glass",  "mp3/game1/", "glass.mp3");
+    Loads.loads("mp3_game1_sewing",  "mp3/game1/", "sewing.mp3");
+    Loads.loads("mp3_game1_ufo",  "mp3/game1/", "ufo.mp3");
+    Loads.loads("mp3_game1_ufo_light",  "mp3/game1/", "ufo_light.mp3");
 }
 
 function GameLoad1_cav(){
@@ -125,7 +142,7 @@ function GameLoad1_cav(){
             run:{ frames: cv.mov(12, 3), next:"ini"}
         }
     });
-
+    //
     cav_game1.drawSprite("game1_glass1","",{
         mov: {
             ini: [0],
@@ -201,7 +218,6 @@ function GameLoad1_cav(){
     cav_game1.drawArea("game1_flower", "", [483,965,165,122], "#ffffff", {alpha: 0.01});
 
     cav_game1.drawArea("game1_ufo", "", [0,0,170,367], "#ffffff", {alpha: 0.01});
-
 
     var drawArr = [
         cav_game1.img["game1_bg"],

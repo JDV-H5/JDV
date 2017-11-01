@@ -32,11 +32,13 @@ Room.Game1.go_after = function(){
 Room.Game1.ini = function(){
     // main
     cav_game1.dom["game1_book2"].on("click", function () {
+        mp3_play("game1_book");
         cav_game1.sprite["game1_book2"].gotoAndPlay("run");
         PG1.glass = 1;
     });
 
     cav_game1.dom["game1_book3"].on("click", function () {
+        mp3_play("game1_book");
         cav_game1.sprite["game1_book3"].gotoAndPlay("run");
         PG1.ufo = 1;
     });
@@ -44,40 +46,55 @@ Room.Game1.ini = function(){
     cav_game1.dom["game1_glass1"].on("click", function () {
         if(PG1.ufo && PG1.ufo_play) {
             if(PG1.glass){
+                mp3_play("game1_glass");
                 cav_game1.sprite["game1_glass2"].gotoAndPlay("run");
                 cav_game1.spriteMovEnd("game1_glass2", function(){
                     cvtw.get(cav_game1.sprite["game1_ufo_light"]).to({alpha:0 }, 700);
+
+                    mp3_play("game1_clothes");
                     cav_game1.sprite["game1_clothes"].gotoAndPlay("run");
                     $("#Game1 ._next").css("opacity",0).show().velocity({ opacity: 1}, {delay:3000, duration: 1000 });
                 });
             }else cav_game1.sprite["game1_glass2"].gotoAndPlay("no");
 
-        }else cav_game1.sprite["game1_glass1"].gotoAndPlay("run");
+        }else {
+            mp3_play("game1_glass");
+            cav_game1.sprite["game1_glass1"].gotoAndPlay("run");
+        }
     });
     cav_game1.dom["game1_ufo"].on("click", function () {
         PG1.ufo_play = 1;
         if(PG1.ufo) {
+            mp3_play("game1_ufo");
+            mp3_play("game1_ufo_light");
             cav_game1.sprite["game1_ufo"].gotoAndPlay("play");
             cav_game1.sprite["game1_ufo_light"].gotoAndPlay("play");
         }
-        else cav_game1.sprite["game1_ufo"].gotoAndPlay("run");
+        else {
+            mp3_play("game1_ufo");
+            cav_game1.sprite["game1_ufo"].gotoAndPlay("run");
+        }
     });
 
 
     // else
     cav_game1.dom["game1_brain"].on("click", function () {
+        mp3_play("game1_brain");
         cav_game1.sprite["game1_brain"].gotoAndPlay("run");
     });
 
     cav_game1.dom["game1_book1"].on("click", function () {
+        mp3_play("game1_book");
         cav_game1.sprite["game1_book1"].gotoAndPlay("run");
     });
 
     cav_game1.dom["game1_draw"].on("click", function () {
+        mp3_play("game1_draw");
         cav_game1.sprite["game1_draw"].gotoAndPlay("run");
     });
 
     cav_game1.dom["game1_bookshow"].on("click", function () {
+        mp3_play("game1_bookshow");
         cav_game1.sprite["game1_bookshow"].gotoAndPlay("run");
     });
 
@@ -88,14 +105,17 @@ Room.Game1.ini = function(){
     });
 
     cav_game1.dom["game1_sewing"].on("click", function () {
+        mp3_play("game1_sewing");
         cav_game1.sprite["game1_sewing"].gotoAndPlay("run");
     });
 
     cav_game1.dom["game1_drawer"].on("click", function () {
+        mp3_play("game1_drawer");
         cav_game1.sprite["game1_drawer"].gotoAndPlay("run");
     });
 
     cav_game1.dom["game1_flower"].on("click", function () {
+        mp3_play("game1_flower");
         cav_game1.sprite["game1_flower"].gotoAndPlay("run");
     });
 

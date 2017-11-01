@@ -2,6 +2,13 @@ var cav_game2,
     PG2 = {};
 
 function GameLoad2(){
+    try{
+        cav_game1.stage.removeAllChildren();
+        cav_game1.stage.clear();
+        cav_game1 = "";
+        Loads.loaded = [];
+        Loads.list = [];
+    }catch(e){}
 
     Dom.loadWord = $("#GameLoad2 .loadw");
     Dom.loadLine = $("#GameLoad2 .line");
@@ -35,6 +42,9 @@ function GameLoad2(){
     Loads.loads("game2_key",  "img/game2/", "key.png");
     Loads.loads("game2_tv",  "img/game2/", "tv.png");
 
+    game2_load_mp3();
+
+    Loads.loads("x2",  "img/", "x.png");
 
     Loads.progress = function(e){
         var i = parseInt(e.loaded*100);
@@ -51,6 +61,20 @@ function GameLoad2(){
         setTimeout( Room.GameLoad2.ppt , 300);
     };
     Loads.loading();
+}
+
+function game2_load_mp3(){
+    Loads.loads("mp3_game2_brain",  "mp3/game2/", "brain.mp3");
+    Loads.loads("mp3_game2_camera",  "mp3/game2/", "camera.mp3");
+    Loads.loads("mp3_game2_curtain",  "mp3/game2/", "curtain.mp3");
+    Loads.loads("mp3_game2_door",  "mp3/game2/", "door.mp3");
+    Loads.loads("mp3_game2_drawer",  "mp3/game2/", "drawer.mp3");
+    Loads.loads("mp3_game2_gamedoor",  "mp3/game2/", "gamedoor.mp3");
+    Loads.loads("mp3_game2_glass",  "mp3/game2/", "glass.mp3");
+    Loads.loads("mp3_game2_heart",  "mp3/game2/", "heart.mp3");
+    Loads.loads("mp3_game2_key",  "mp3/game2/", "key.mp3");
+    Loads.loads("mp3_game2_tv",  "mp3/game2/", "tv.mp3");
+    Loads.loads("mp3_game2_tv2",  "mp3/game2/", "tv2.mp3");
 }
 
 function GameLoad2_cav(){
@@ -101,6 +125,7 @@ function GameLoad2_cav(){
             stop:[12]
         }
     });
+
     cav_game2.drawImg("game2_gamedoor_no","",{x:235, y:435});
 
     cav_game2.drawSprite("game2_curtain","",{
@@ -111,12 +136,7 @@ function GameLoad2_cav(){
             back:{ frames: cv.back(12), next:"ini"}
         }
     });
-    cav_game2.drawSprite("game2_tv","",{
-        mov: {
-            ini: [0],
-            run:[0,12,"ini"]
-        }
-    });
+
     cav_game2.drawSprite("game2_heart","",{
         mov: {
             ini: [0],
@@ -144,6 +164,13 @@ function GameLoad2_cav(){
             run:[0,12,"stop"],
             stop:[12],
             back:{ frames: cv.back(12), next:"ini"}
+        }
+    });
+
+    cav_game2.drawSprite("game2_tv","",{
+        mov: {
+            ini: [0],
+            run:[0,12,"ini"]
         }
     });
 
