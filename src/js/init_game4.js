@@ -34,13 +34,6 @@ function GameLoad4(){
         Loads.loads("game4_z"+i+"_2",  "img/game4/", "z"+i+"_2.png");
     }
 
-
-    // for(var i =1 ; i<=15; i++)
-    //     Loads.loads("game4_plant0_"+i,  "img/game4/plant0/", "plant0"+i+".png");
-    //
-    // for(var i =1 ; i<=15; i++)
-    //     Loads.loads("game4_plant1_"+i,  "img/game4/plant1/", "plant1"+i+".png");
-
     Loads.loads("game4_plant0",  "img/game4/plant/", "plant0.png");
     Loads.loads("game4_plant0_1",  "img/game4/plant/", "plant0_1.png");
     Loads.loads("game4_plant1_1",  "img/game4/plant/", "plant1_1.png");
@@ -59,8 +52,6 @@ function GameLoad4(){
         Dom.loadLine.css("width", e.loaded*150)
     };
     Loads.complete = function(){
-
-        // console.log(Loads.loaded);
 
         GameLoad4_cav();
         Room.Game4.ini();
@@ -110,21 +101,6 @@ function GameLoad4_cav(){
         conf:{ x:565, y:530, rotation:-40, scaleX:0.8, scaleY:0.8}
     },[Loads.loaded["game4_butterfly"]], "game4_butterfly");
 
-    // cav_game4.drawPhotos("game4_plant0","","game4_plant0_",15,{
-    //     frames:[0,0,700,1140],
-    //     framerate:4,
-    //     mov: {
-    //         ini:[0,14,"ini"]
-    //     }
-    // });
-    //
-    // cav_game4.drawPhotos("game4_plant1","","game4_plant1_",15,{
-    //     frames:[0,0,700,1140],
-    //     framerate:4,
-    //     mov: {
-    //         ini:[0,14,"ini"]
-    //     }
-    // });
     cav_game4.drawImg("game4_plant0");
     cav_game4.drawImg("game4_plant0_1","",{x:405, y:797+343, regY:343});
     cav_game4.drawImg("game4_plant1_1","",{x:418+260, y:310+221, regX:260, regY:221});
@@ -201,7 +177,6 @@ function GameLoad4_cav(){
         cav_game4.sprite["game4_box_open"],
         cav_game4.img["game4_box"],
 
-        // cav_game4.sprite["game4_plant0"],
         cav_game4.img["game4_plant0"],
 
 
@@ -210,7 +185,6 @@ function GameLoad4_cav(){
         cav_game4.img["game4_z3_1"],
 
 
-        // cav_game4.sprite["game4_plant1"],
         cav_game4.img["game4_plant1_1"],
         cav_game4.img["game4_plant1_2"],
         cav_game4.img["game4_plant1_4"],
