@@ -12,6 +12,7 @@ Room.Index = {};
 Room.Index.dom = function(){
     $("#Index .start").tap(function(e){
         cc.tap(e);
+        mp3_play("bg", 1);
         Room.Index.ppt();
     });
 

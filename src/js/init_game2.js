@@ -16,10 +16,10 @@ function GameLoad2(){
     cav_game2 = new CanvasCreate($("#cav_game2"));
 
     //border
-    Loads.loads("border1",  "img/", "border1.png");
-    Loads.loads("border2",  "img/", "border2.png");
-    Loads.loads("border3",  "img/", "border3.png");
-    Loads.loads("border4",  "img/", "border4.png");
+    Loads.loads("game2_border1",  "img/", "border1.png");
+    Loads.loads("game2_border2",  "img/", "border2.png");
+    Loads.loads("game2_border3",  "img/", "border3.png");
+    Loads.loads("game2_border4",  "img/", "border4.png");
     // game
     Loads.loads("game2_eye0",  "img/game2/", "eye0.png");
     Loads.loads("game2_gamedoor_no",  "img/game2/", "gamedoor_no.png");
@@ -126,7 +126,7 @@ function GameLoad2_cav(){
         }
     });
 
-    cav_game2.drawImg("game2_gamedoor_no","",{x:235, y:435});
+    cav_game2.drawImg("game2_gamedoor_no","",{x:235, y:434});
 
     cav_game2.drawSprite("game2_curtain","",{
         mov: {
@@ -179,10 +179,11 @@ function GameLoad2_cav(){
     cav_game2.drawImg("game2_m3","",{x:68-700, y:964, alpha: 0});
     cav_game2.drawImg("game2_key0","",{x:570-700, y:971, alpha: 0});
 
-    cav_game2.drawImg("border1","",{x:0, y:0});
-    cav_game2.drawImg("border2","",{x:0, y:55});
-    cav_game2.drawImg("border3","",{x:43, y:1095});
-    cav_game2.drawImg("border4","",{x:657, y:55});
+    //边框
+    cav_game2.drawImg("game2_border1","",{x:0, y:0});
+    cav_game2.drawImg("game2_border2","",{x:0, y:55});
+    cav_game2.drawImg("game2_border3","",{x:43, y:1095});
+    cav_game2.drawImg("game2_border4","",{x:657, y:55});
 
     cav_game2.drawArea("game2_drawer", "", cv.getArea("game2_drawer"), "#ffffff", {alpha: 0.01});
     cav_game2.drawArea("game2_eye", "", [81,34,155,162], "#ffffff", {alpha: 0.01});
@@ -242,10 +243,10 @@ function GameLoad2_cav(){
         cav_game2.img["game2_m3"],
         cav_game2.img["game2_key0"],
 
-        cav_game2.img["border1"],
-        cav_game2.img["border2"],
-        cav_game2.img["border3"],
-        cav_game2.img["border4"]
+        cav_game2.img["game2_border1"],
+        cav_game2.img["game2_border2"],
+        cav_game2.img["game2_border3"],
+        cav_game2.img["game2_border4"]
     ];
 
     cav_game2.draw("game2", drawArr);

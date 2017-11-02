@@ -15,10 +15,10 @@ function GameLoad3(){
 
     cav_game3 = new CanvasCreate($("#cav_game3"));
 
-    Loads.loads("border1",  "img/", "border1.png");
-    Loads.loads("border2",  "img/", "border2.png");
-    Loads.loads("border3",  "img/", "border3.png");
-    Loads.loads("border4",  "img/", "border4.png");
+    Loads.loads("game3_border1",  "img/", "border1.png");
+    Loads.loads("game3_border2",  "img/", "border2.png");
+    Loads.loads("game3_border3",  "img/", "border3.png");
+    Loads.loads("game3_border4",  "img/", "border4.png");
     // game
     Loads.loads("game3_bg",  "img/game3/", "bg.png");
     Loads.loads("game3_book",  "img/game3/", "book.png");
@@ -229,10 +229,10 @@ function GameLoad3_cav(){
 
 
     //边框
-    cav_game3.drawImg("border1","",{x:0, y:0});
-    cav_game3.drawImg("border2","",{x:0, y:55});
-    cav_game3.drawImg("border3","",{x:43, y:1095});
-    cav_game3.drawImg("border4","",{x:657, y:55});
+    cav_game3.drawImg("game3_border1","",{x:0, y:0});
+    cav_game3.drawImg("game3_border2","",{x:0, y:55});
+    cav_game3.drawImg("game3_border3","",{x:43, y:1095});
+    cav_game3.drawImg("game3_border4","",{x:657, y:55});
 
     cav_game3.drawArea("game3_book", "", cv.getArea("game3_book"), "#ffffff", {alpha: 0.01});
     cav_game3.drawArea("game3_book2", "", cv.getArea("game3_book2"), "#ffffff", {alpha: 0.01});
@@ -289,10 +289,10 @@ function GameLoad3_cav(){
         cav_game3.dom["game3_lightEnd"],
 
         //边框
-        cav_game3.img["border1"],
-        cav_game3.img["border2"],
-        cav_game3.img["border3"],
-        cav_game3.img["border4"]
+        cav_game3.img["game3_border1"],
+        cav_game3.img["game3_border2"],
+        cav_game3.img["game3_border3"],
+        cav_game3.img["game3_border4"]
 
     ];
 

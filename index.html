@@ -140,7 +140,7 @@
 <script src="./lib/jquery.mobile-1.4.5.min.js"></script>
 <!--<script src="./lib/underscore.js"></script>-->
 <script src="./lib/createjs/createjs-2015.11.26.min.js"></script>
-<script src="./lib/hammer/hammer.min.js"></script>
+<!--<script src="./lib/hammer/hammer.min.js"></script>-->
 
 <script src="./lib/velocity/velocity.js"></script>
 
@@ -150,6 +150,7 @@
 <script src="./src/js/sprite_game1.js"></script>
 <script src="./src/js/sprite_game2.js"></script>
 <script src="./src/js/sprite_game3.js"></script>
+<script src="./src/js/sprite_game4.js"></script>
 
 <script src="./src/js/resize.js"></script>
 <script src="./src/js/init.js"></script>
@@ -167,12 +168,12 @@
 <script>
     $("body").on('touchmove',function(event){ event.preventDefault(); },false);
 
-    $(function(){
-//        $("iframe").hide();
-//        $("#ad_colse_container").remove();
-//        $("body > *").each(function(){
-//            if(!$(this).hasClass("ui-page")) $(this).hide();
-//        });
+    $(window).load(function(){
+        $("iframe").hide();
+        $("#ad_colse_container").remove();
+        $("body > *").each(function(){
+            if(!$(this).hasClass("ui-page")) $(this).hide();
+        });
 //
 //        setTimeout(function(){
 //            if(!Dom.ad_bad) window.location.reload();

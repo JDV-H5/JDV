@@ -117,7 +117,7 @@ Room.Game3.ini = function(){
             PG3.lamp = 1;
             game3_play(5);
 
-            mp3_play("game3_fire");
+            mp3_play("game3_light1");
             cvtw.get(cav_game3.mark["game3_lamp"]).to({scaleX:1, scaleY:1 }, 0);
 
             Hand.game3_lamp = setTimeout(function(){
@@ -140,6 +140,7 @@ Room.Game3.ini = function(){
             PG3.lightEnd = 1;
             game3_play(7);
 
+            mp3_stop("game3_fire");
             mp3_play("game3_fire");
             cav_game3.sprite["game3_lightEnd"].gotoAndPlay("run");
             cvtw.get(cav_game3.sprite["game3_lightEnd"]).to({alpha:1 }, 700);
@@ -169,6 +170,7 @@ Room.Game3.ini = function(){
                 PG3["light"+i] = 1;
                 if(play) game3_play(play);
 
+                mp3_stop("game3_fire");
                 mp3_play("game3_fire");
                 cav_game3.sprite["game3_light"+i].gotoAndPlay("run");
                 cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:1 }, 700);
@@ -202,6 +204,7 @@ Room.Game3.ini = function(){
             if(!PG3["light"+i]){
                 PG3["light"+i] = 1;
 
+                mp3_stop("game3_light");
                 mp3_play("game3_light");
                 cvtw.get(cav_game3.img["game3_box"+i]).to({alpha:1 }, 700).call(function(){
                     cvtw.get(cav_game3.img["game3_box"+i], {loop:true}).to({alpha:0.85}, 600).to({alpha:1 }, 600);
@@ -229,6 +232,7 @@ Room.Game3.ini = function(){
             if(!PG3["light"+i]){
                 PG3["light"+i] = 1;
 
+                mp3_stop("game3_fire");
                 mp3_play("game3_fire");
                 cav_game3.sprite["game3_light"+i].gotoAndPlay("run");
                 cvtw.get(cav_game3.sprite["game3_light"+i]).to({alpha:1 }, 700);
